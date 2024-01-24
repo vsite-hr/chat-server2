@@ -1,5 +1,26 @@
 # Getting Started
+GET - dohvat podataka (search)
+POST - kreiranje novih entiteta (kada nemamo PK, CREATE)
+PUT - Update ili kreiranje ako imamo PK
+DELETE - brisanje
 
+PATCH - djelomični update
+
+URL:
+GET  - /groups
+GET  - /groups/{groupName}
+POST - /groups - body json GroupDTO
+PUT - /groups/{groupName} body json GroupDTO
+DELETE - /groups/{groupName}
+
+
+http code 200 -  uspješna operacija
+http code 204 -  uspješna operacija bez povratnih podataka
+
+
+Group - vsite
+
+/groups/vsite
 ### Reference Documentation
 For further reference, please consider the following sections:
 
