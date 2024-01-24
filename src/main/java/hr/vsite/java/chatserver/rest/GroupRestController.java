@@ -4,6 +4,9 @@ import hr.vsite.java.chatserver.domain.Group;
 import hr.vsite.java.chatserver.domain.GroupService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.LinkedList;
+import java.util.List;
+
 @RestController
 public class GroupRestController {
 
@@ -13,8 +16,32 @@ public class GroupRestController {
         this.groupService = groupService;
     }
 
-    @PostMapping("/groups")
-    public void createGroup(@RequestBody GroupDTO groupDTO) {
+
+    @DeleteMapping("/groups/{groupName}")
+    public void deleteGroup(@PathVariable String groupName) {
+        groupService.deleteGroup(groupName);
+    }
+
+    @GetMapping("/groups")
+    public List<GroupDTO> getGroups(String groupName) {
+        List<Group> groups = groupService.searchGroups(groupName);
+        List<GroupDTO> groupDTOS = new LinkedList<>();
+        for (Group group : groups) {
+            groupDTOS.add(toDto(group));
+        }
+        return groupDTOS;
+    }
+
+    private GroupDTO toDto(Group group) {
+        GroupDTO dto = new GroupDTO();
+        dto.setGroupName(group.getGroupName());
+        return dto;
+    }
+
+
+    @PutMapping("/groups/{groupName}")
+    public void createGroup(@RequestBody GroupDTO groupDTO,
+                            @PathVariable String groupName){
         Group group = new Group();
         group.setGroupName(groupDTO.getGroupName());
         groupService.createGroup(group);

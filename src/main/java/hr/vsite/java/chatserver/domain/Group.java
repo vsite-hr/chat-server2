@@ -1,5 +1,6 @@
 package hr.vsite.java.chatserver.domain;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
@@ -10,6 +11,7 @@ public class Group {
 
     @Id
     private String groupName;
+
 
     public String getGroupName() {
         return groupName;
