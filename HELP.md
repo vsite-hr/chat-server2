@@ -38,3 +38,5 @@ The following guides illustrate how to use some features concretely:
 * [Building REST services with Spring](https://spring.io/guides/tutorials/rest/)
 * [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/)
 * [Spring data query methods](https://docs.spring.io/spring-data/jpa/reference/jpa/query-methods.html)
+* [Testing the Web Layer](https://spring.io/guides/gs/testing-web/)
+* [Building a RESTful Web Service with Spring Boot Actuator](https://spring.io/guides/gs/actuator-service/)
